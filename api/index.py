@@ -59,7 +59,6 @@ def handle_message(event):
     response = openai.Completion.create(
         engine=model_engine,
         prompt=event.message.text,
-        temperature= 0.5,
         max_tokens = output_length
     )
 
@@ -72,6 +71,3 @@ def handle_message(event):
 
 if __name__ == "__main__":
     app.run()
-    webhook_handler = WebhookHandler('2c61617dd7275afc7127ec4c280b02a5')
-    line_bot_api = LineBotApi('UNqrgdVFsi5OPdNsyy6H3zp5tkJqPquCDcS596bgU1tggL9n60QUam8ZQQQqdgAkvPqZpKugnAqN6N5Id11xiMRq7ynRmg3n/AdYpqpw3w2bGx8eNo03kqS6iN0ZIzxRgmEH4Zasny2lfQyY4TZxUAdB04t89/1O/w1cDnyilFU=')
-    app.route("/callback", methods=["POST"])(webhook_handler.handle)
