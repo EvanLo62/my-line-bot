@@ -3,7 +3,7 @@ import os
 
 # 設定 OpenAI API 密鑰3
 # openai.api_key = os.environ["OPENAI_API_KEY"]
-openai.api_key = "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"
+openai.api_key = "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"
 
 # 輸入文本
 input_text = "今天天氣很好，請用中文回答。請做一首跟天氣有關的詩"

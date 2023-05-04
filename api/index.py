@@ -19,7 +19,7 @@ line_bot_api = LineBotApi('WnOAh83Ss4qSMw/6INKsbJnAdHS7Xe8T7qMRJ4bPwrzIEzkRezQDM
 webhook_handler = WebhookHandler('4a02436c986b12d55a812b590e515f96')
 
 # 設定 OpenAI API 密鑰
-openai.api_key = "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"
+openai.api_key = os.environ["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"]
 # openai.api_key = "OPENAI_API_KEY"
 
 # 設定 GPT-3.5 模型的檢索引擎
