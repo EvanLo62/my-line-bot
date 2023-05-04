@@ -26,7 +26,7 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 model_engine = "text-davinci-003"
 
 # 設定生成的文本長度
-output_length = 300
+output_length = 50
 
 
 @app.route("/")
