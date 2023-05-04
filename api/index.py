@@ -59,7 +59,8 @@ def handle_message(event):
     response = openai.Completion.create(
         engine=model_engine,
         prompt=event.message.text,
-        temperature= 0.5
+        temperature= 0.5,
+        max_tokens = output_length
     )
 
     # 取得生成的文本
