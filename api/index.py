@@ -19,7 +19,7 @@ def chatgpt(input):
     # openai.api_key = "OPENAI_API_KEY"
 
     # 設定 GPT-3.5 模型的檢索引擎
-    model_engine = "text-davinci-002"
+    model_engine = "text-davinci-003"
 
     # 設定生成的文本長度
     output_length = 300
@@ -33,7 +33,7 @@ def chatgpt(input):
         max_tokens = output_length,
     )
 
-    return response.choices[0].text.strip()
+    return response.choices[0].text
 
 app = Flask(__name__)
 
@@ -69,7 +69,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(chatgpt(event.message.text)))
+        TextSendMessage(text=chatgpt(event.message.text)))
 
 if __name__ == "__main__":
     app.run()
