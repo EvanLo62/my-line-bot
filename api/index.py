@@ -22,7 +22,7 @@ def chatgpt(input):
     model_engine = "text-davinci-003"
 
     # 設定生成的文本長度
-    output_length = 200
+    output_length = 300
 
     input_text = input
 
