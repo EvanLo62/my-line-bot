@@ -79,24 +79,24 @@
 
 
 
-# import openai
-# import os
+import openai
+import os
 
-# from flask import Flask, request, abort
+from flask import Flask, request, abort
 
-# from linebot import (
-#     LineBotApi, WebhookHandler
-# )
-# from linebot.exceptions import (
-#     InvalidSignatureError
-# )
-# from linebot.models import (
-#     MessageEvent, TextMessage, TextSendMessage,
-# )
+from linebot import (
+    LineBotApi, WebhookHandler
+)
+from linebot.exceptions import (
+    InvalidSignatureError
+)
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,
+)
 
-# def chatgpt(input):
-#     # 設定OpenAI API密鑰
-#     openai.api_key = os.environ["OPENAI_API_KEY"]
+def chatgpt(input):
+    # 設定OpenAI API密鑰
+    openai.api_key = os.environ["OPENAI_API_KEY"]
     # openai.api_key = "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"
 
     # 載入ChatGPT模型
