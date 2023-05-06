@@ -19,7 +19,7 @@ def chatgpt(input):
     # openai.api_key = "OPENAI_API_KEY"
 
     # 設定 GPT-3.5 模型的檢索引擎
-    model_engine = "text-davinci-001"
+    model_engine = "text-davinci-002"
 
     # 設定生成的文本長度
     output_length = 300
