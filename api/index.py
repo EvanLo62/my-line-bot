@@ -1,84 +1,3 @@
-# import openai
-# import os
-
-# from flask import Flask, request, abort
-
-# from linebot import (
-#     LineBotApi, WebhookHandler
-# )
-# from linebot.exceptions import (
-#     InvalidSignatureError
-# )
-# from linebot.models import (
-#     MessageEvent, TextMessage, TextSendMessage,
-# )
-
-# def chatgpt(input):
-#     # 設定 OpenAI API 密鑰
-#     openai.api_key = os.environ["OPENAI_API_KEY"]
-#     # openai.api_key = "OPENAI_API_KEY"
-
-#     # 設定 GPT-3.5 模型的檢索引擎
-#     model_engine = "text-davinci-003"
-
-#     # 設定生成的文本長度
-#     output_length = 300
-
-#     input_text = input
-
-#         # 使用 GPT-3.5 模型生成文本
-#     response = openai.Completion.create(
-#         engine=model_engine,
-#         prompt=input_text,
-#         max_tokens = output_length,
-#     )
-
-#     return response.choices[0].text
-
-# app = Flask(__name__)
-
-# line_bot_api = LineBotApi('qJtCt4QbX76HjLUY/BpU/+bahr/G4TnH8EVCgOaIgQu5spEYzrwBSm7oE2LYEQeEvPqZpKugnAqN6N5Id11xiMRq7ynRmg3n/AdYpqpw3w24LTOVn7wNUDlmSnu+eyipaT722a2o7P9pMoug1eEMrwdB04t89/1O/w1cDnyilFU=')
-# webhook_handler = WebhookHandler('8d5ad769bf3db12f5a7a56728bd7c0b7')
-
-
-# @app.route("/")
-# def home():
-#     return "LINE BOT API Server is running."
-
-# @app.route("/callback", methods=['POST'])
-# def callback():
-#     # get X-Line-Signature header value
-#     signature = request.headers['X-Line-Signature']
-
-#     # get request body as text
-#     body = request.get_data(as_text=True)
-#     app.logger.info("Request body: " + body)
-
-#     # handle webhook body
-#     try:
-#         webhook_handler.handle(body, signature)
-#     except InvalidSignatureError:
-#         print("Invalid signature. Please check your channel access token/channel secret.")
-#         abort(400)
-
-#     return 'OK'
-
-
-# @webhook_handler.add(MessageEvent, message=TextMessage)
-# def handle_message(event):
-
-#     line_bot_api.reply_message(
-#         event.reply_token,
-#         TextSendMessage(text=chatgpt(event.message.text)))
-
-# if __name__ == "__main__":
-#     app.run()
-
-
-
-
-
-
 import openai
 import os
 
@@ -95,9 +14,9 @@ from linebot.models import (
 )
 
 def chatgpt(input):
+
     # 設定OpenAI API密鑰
     openai.api_key = os.environ["OPENAI_API_KEY"]
-    # openai.api_key = "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"
 
     # 載入ChatGPT模型
     model_engine = "text-davinci-003"
@@ -121,10 +40,8 @@ def chatgpt(input):
 
 app = Flask(__name__)
 
-# line_bot_api = LineBotApi('5Upflq5dGSdO0XcPbzx+s3QdYSA6C+bknNz/4xWrs7HvMulaIdcU0K5ojdFd8c6/c6jdL2pqHWY9MHQrRBbEp0yG2hmxgpkY4kiILYkLWvgCYDR3zpT3rn1vLKnF3emHNh9qeLjXHSNQ1AfMDfOPQQdB04t89/1O/w1cDnyilFU=')
-# webhook_handler = WebhookHandler('0f6fa69d1a0843d685a121d4d975b078')
-line_bot_api = LineBotApi('qJtCt4QbX76HjLUY/BpU/+bahr/G4TnH8EVCgOaIgQu5spEYzrwBSm7oE2LYEQeEvPqZpKugnAqN6N5Id11xiMRq7ynRmg3n/AdYpqpw3w24LTOVn7wNUDlmSnu+eyipaT722a2o7P9pMoug1eEMrwdB04t89/1O/w1cDnyilFU=')
-webhook_handler = WebhookHandler('8d5ad769bf3db12f5a7a56728bd7c0b7')
+line_bot_api = LineBotApi('ntH7w+oaDQpKyx9A2cLVQJeF8AquXIbMk9emJGhuyv1qSELTficcRjFNrtVmK4Ff2t9W1TfOMR8HQ0DATg1E2ZSAq3OKiq/kmTU0hePhfw7DZ74PSgkRtw3BmzTncQA5GRoQbscVCpwVs8IkSpcwygdB04t89/1O/w1cDnyilFU=')
+webhook_handler = WebhookHandler('cd438be337f0423b8afcd5326a37e615')
 
 @app.route("/")
 def home():
@@ -155,7 +72,5 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=chatgpt(event.message.text)))
 
-
 if __name__ == "__main__":
     app.run()
-    # print(chatgpt("hello world"))dddd
