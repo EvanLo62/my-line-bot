@@ -28,8 +28,6 @@ model_engine = "text-davinci-003"
 # 設定生成的文本長度
 output_length = 200
 
-temp = 0.5
-
 
 @app.route("/")
 def home():
@@ -62,7 +60,6 @@ def handle_message(event):
         engine=model_engine,
         prompt=event.message.text,
         max_tokens = output_length,
-        temperature = temp
     )
 
     # 取得生成的文本
