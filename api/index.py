@@ -33,7 +33,7 @@ def chatgpt(input):
         max_tokens = output_length,
     )
 
-    return response.choices[0].text
+    return response.choices[0].text.strip()
 
 app = Flask(__name__)
 
